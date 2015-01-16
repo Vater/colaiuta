@@ -1,0 +1,19 @@
+<div class='manuStep' clear-wrapper>
+	
+	<span ng-click="prevItem()" class="prev"><i class="fa fa-arrow-circle-left"></i></span><span ng-click="nextItem()" class="next"><i class="fa fa-arrow-circle-right"></i></span>
+	<h1>{{manuStep.title}}</h1>
+	<p>{{manuStep.text}}</p>
+</div>
+<!--
+<div class="homeWrapper productsMain staticMain">
+<h1>Manufacturing</h1>
+	<youtube ng-if="showVid" id="DZkiRdx87nE" width="100%" height="510" current-time="time" controls="1"></youtube>
+
+<p>
+Since the early 1950's, the Vater Family has applied advances in technology to their manufacturing process to give drummers the most consistent and highest quality drumsticks in the world. The Vater Family has truly perfected the art of drumstick manufacturing, leaving the competition scrambling to keep up.
+</p>
+
+
+</div>-->
+
+<div id="homeBg" ng-if="manuStep.img" fullscreen-bg="manuStep.img"></div>

@@ -1,0 +1,24 @@
+<div class="productSingle">
+    <div ng-repeat="product in compareObjects">
+    <div id="zoom"><img ng-src="//vater.s3.amazonaws.com/products_fullres/Vater_{{product.images[0].name}}.jpg" class="bigImg"></div>
+    <div class="heroImage" hover-zoom><img ng-src="//vater.s3.amazonaws.com/products_fullres/Vater_{{product.images[0].name}}.jpg"></div>
+    <div class="productStats">
+        <div class="nameWrap">
+         <h1>{{product.name}}</h1><br/>
+         <h3 ng-bind-html="product.product_code"></h3>
+        </div>
+        <div class="dimensions" ng-if="product.dimensions_length && product.dimensions_diameter">
+            <ul>
+                <li><span class="stat">Length</span><div class="statbox">{{product.dimensions_length}}" | {{toCentimeters(product.dimensions_length)}}cm</div></li>
+                <li><span class="stat">Grip</span><div class="statbox">{{product.dimensions_diameter}}" | {{toCentimeters(product.dimensions_diameter)}}cm</div></li>
+            </ul>
+        </div>
+    </div>
+    <p class="prodDesc" ng-bind-html="product.description">
+    </p>
+    <div class="buyNow">
+     <h2>Buy Now</h2>
+    </div>
+</div>
+</div>
+<div id="homeBg" random-bg></div>

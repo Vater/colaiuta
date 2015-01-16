@@ -1,0 +1,9 @@
+<div class="homeWrapper">
+	
+	<div ng-repeat="feature in features" class="features">
+		<a ng-href="#/feature/{{feature.id}}"><h1 ng-bind-html="feature.headline"></h1></a>
+		<div ng-bind-html="feature.content"></div>
+		<a ng-href="#/product/{{feature.product.id}}"><div ng-bind-html="feature.product.name"></div></a>
+		<a ng-href="#/artists/{{feature.artist.id}}"><div ng-bind-html="feature.artist.full_name"></div></a>
+	</div>
+</div>

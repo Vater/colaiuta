@@ -1,0 +1,39 @@
+<div class="artistMain">
+    <div class="heroImage">
+        <youtube ng-if="showVid" id="{{vidId}}" width="100%" height="480" current-time="time" controls="1"></youtube>
+        <img ng-hide="showVid" ng-src="{{activeImage}}">
+    </div>
+    <div class="artistStats">
+        <div class="nameWrap">
+         <h1><span ng-if="artist.first_name">{{artist.first_name}} </span><span ng-if="artist.last_name">{{artist.last_name}}</span></h1>
+         <h2>{{artist.group}}</h2>
+         <h3><a ng-href="#/product/{{artist.products[0].id}}" ng-bind-html='artist.products[0].name'></a></h3>
+        </div>
+        <div class="media">
+            <div class="vidThumb" ng-repeat="vid in artist.videos" ng-click="showVideo(vid.url)">
+                <img ng-src="http://i.ytimg.com/vi/{{vid.url}}/default.jpg">
+                <i class="fa fa-play-circle"></i>
+            </div>
+            <div class="imgThumb" ng-repeat="img in artist.images">
+                <img  ng-src="{{img.url}}" ng-click="currentImage($index)">
+            </div>
+        </div>
+        <ul ng-if="social.length > 0" class="social">
+            <li ng-if="socialLinks.facebook"><a ng-href="http://facebook.com/{{socialLinks.facebook}}" target="_blank"><i class="fa fa-facebook-square"></i> /{{socialLinks.facebook}}</a></li>
+            <li ng-if="socialLinks.twitter"><a ng-href="http://twitter.com/{{socialLinks.twitter}}" target="_blank"><i class="fa fa-twitter-square"></i> @{{socialLinks.twitter}}</a></li>
+            <li ng-if="socialLinks.youtube"><a ng-href="http://youtube.com/{{socialLinks.youtube}}" target="_blank"><i class="fa fa-youtube-square"></i> /{{socialLinks.youtube}}</li>
+            <li ng-if="socialLinks.instagram"><a ng-href="http://instagram.com/{{socialLinks.instagram}}" target="_blank"><i class="fa fa-instagram"></i> @{{socialLinks.instagram}}</li>
+            <li ng-if="socialLinks.web"><a ng-href="http://{{socialLinks.web}}" target="_blank"><i class="fa fa-link"></i> {{socialLinks.web}}</a></li>
+
+        </ul>
+        <div class="shareThis">SHARE THIS: <i class="fa fa-facebook-square"></i> <i class="fa fa-twitter-square"></i> <i class="fa fa-tumblr-square"></i></div>
+    </div>
+    
+    <p ng-bind-html="artist.bio"></p>
+    <ul ng-if="artist.features.length>0"><li>FEATURES:</li><li ng-repeat="feature in artist.features"><a href="#/feature/{{feature.id}}">{{feature.headline}}</a></li></ul>
+    <p ng-if="artist.quote" class="quote"><span ng-bind-html="artist.quote"></span></p>
+    <fb-comments data-href="" data-numposts="5" data-colorscheme="light"></fb-comments>
+    <div class="storefooter"></div>
+    
+</div>
+<div id="artistBg" ng-if='currentImage'></div>
